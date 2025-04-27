@@ -1,18 +1,18 @@
+import Introduction from "@/components/Introduction";
 import Projects from "@/components/Projects";
-// import PixelTrail from "@/fancy/components/background/pixel-trail";
 import React from "react";
 
 const Home: React.FC = () => {
   return (
-    <div className="w-full max-w-[1200px] mx-auto min-h-screen flex flex-col gap-12 justify-center items-center">
-      {/* <div className="absolute inset-0 z-0">
-        <PixelTrail
-          pixelSize={14}
-          fadeDuration={500}
-          pixelClassName="bg-white"
-        />
-      </div> */}
+    <div className="w-full max-w-[1200px] mx-auto min-h-screen justify-center items-center">
+      {/* Introduction section */}
+      <Introduction />
+      {/* Projects section */}
       <Projects />
+      {/* End of scroll animation */}
+      <div className="min-h-screen animation-end"></div>
+
+      <div className="min-h-screen">Something else</div>
     </div>
   );
 };
