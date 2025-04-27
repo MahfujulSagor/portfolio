@@ -7,7 +7,7 @@ import React, { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Projects: React.FC = () => {
+const Projects = () => {
   useEffect(() => {
     const section = document.querySelector(".scroll-section");
     const wrapper = section?.querySelector(".wrapper");
@@ -39,10 +39,13 @@ const Projects: React.FC = () => {
     }
   }, []);
   return (
-    <div className={`flex flex-col gap-26 items-center w-full min-h-screen`}>
+    <div
+      id="work"
+      className={`flex flex-col gap-26 items-center w-full min-h-screen`}
+    >
       <div>
         <h2 className="md:text-5xl text-4xl font-bold text-center flex gap-2 items-center">
-          Projects ↓
+          Selected Work ↓
         </h2>
       </div>
       <div className="scroll-section w-full min-h-screen">
@@ -52,7 +55,7 @@ const Projects: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className="item absolute inset-0 bg-background w-full max-w-[1200px] mx-auto flex gap-4 p-8 md:p-16 border rounded-4xl min-h-[65vh]"
+                  className="item absolute inset-0 bg-secondary w-full max-w-[1200px] mx-auto flex gap-4 p-8 md:p-16 border rounded-4xl min-h-[65vh]"
                 >
                   <div className="flex flex-col gap-4 justify-center">
                     <p className="text-2xl">{project.name}</p>
