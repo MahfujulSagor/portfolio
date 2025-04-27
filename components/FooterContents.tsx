@@ -31,10 +31,18 @@ const FooterContents = () => {
         <div className="Connections flex flex-col gap-6">
           <p className="text-sm text-ring uppercase">LET&apos;S CONNECT</p>
           <div className="flex flex-col text-muted-foreground gap-3 md:text-xl">
-            <Link href={""}>
+            <Link
+              href={"https://www.linkedin.com/in/mahfujul-sagor"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <ComesInGoesOutUnderline label="LinkedIn" direction="right" />
             </Link>
-            <Link href={""}>
+            <Link
+              href={"https://github.com/MahfujulSagor"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <ComesInGoesOutUnderline label="GitHub" direction="right" />
             </Link>
           </div>
