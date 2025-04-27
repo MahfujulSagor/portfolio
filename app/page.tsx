@@ -1,12 +1,16 @@
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import Introduction from "@/components/Introduction";
+import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
 import React from "react";
 
 const Home: React.FC = () => {
   return (
     <div className="w-full max-w-[1200px] mx-auto min-h-screen justify-center items-center">
+      {/* Navbar */}
+      <Navbar />
+
       {/* Introduction section */}
       <Introduction />
 

@@ -3,7 +3,7 @@ import React from "react";
 export const handleLinkClick = (
   e: React.MouseEvent<HTMLAnchorElement>,
   href: string
-) => {
+): void => {
   e.preventDefault();
   const targetElement = document.querySelector(href);
   if (targetElement) {
