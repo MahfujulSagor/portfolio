@@ -1,14 +1,8 @@
 import React from "react";
+import Hero from "./Hero";
 
 const Introduction = () => {
-  return (
-    <div
-      id="home"
-      className="w-full min-h-screen flex justify-center items-center"
-    >
-      <h1 className="text-4xl font-bold">Mahfujul Sagor</h1>
-    </div>
-  );
+  return <Hero />;
 };
 
 export default Introduction;
