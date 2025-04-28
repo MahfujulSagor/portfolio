@@ -12,6 +12,36 @@ const Hero = () => {
   const info2 = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     if (!scrollRef1 || !scrollRef2) return;
+    gsap.to(scrollRef1.current, {
+      x: -250,
+      scrollTrigger: {
+        trigger: "section",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
+        scroller: "body",
+      },
+    });
+    gsap.to(scrollRef2.current, {
+      x: 250,
+      scrollTrigger: {
+        trigger: "section",
+        start: "top top",
+        end: "bottom top",
+        scrub: 1,
+        scroller: "body",
+      },
+    });
+  }, []);
+
+  useLayoutEffect(() => {
+    if (
+      !info1.current ||
+      !info2.current ||
+      !scrollRef1.current ||
+      !scrollRef2.current
+    )
+      return;
 
     gsap.fromTo(
       scrollRef1.current,
@@ -36,31 +66,6 @@ const Hero = () => {
         ease: "power1.inOut",
       }
     );
-
-    gsap.to(scrollRef1.current, {
-      x: -250,
-      scrollTrigger: {
-        trigger: "section",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-        scroller: "body",
-      },
-    });
-    gsap.to(scrollRef2.current, {
-      x: 250,
-      scrollTrigger: {
-        trigger: "section",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-        scroller: "body",
-      },
-    });
-  }, []);
-
-  useLayoutEffect(() => {
-    if (!info1.current || !info2.current) return;
 
     gsap.fromTo(
       info1.current,
@@ -89,7 +94,7 @@ const Hero = () => {
         ease: "power1.inOut",
       }
     );
-  });
+  }, []);
   return (
     <section className="max-w-[1200px] overflow-hidden w-full min-h-screen flex justify-center items-center">
       <div className="w-full">
@@ -97,28 +102,29 @@ const Hero = () => {
           <div className="w-full flex gap-6 justify-start items-center">
             <h1
               ref={scrollRef1}
-              className="text-[150px] tracking-tighter font-extrabold leading-none"
+              className="text-[150px] tracking-tighter font-extrabold leading-none cursor-default"
             >
               Mahfujul
             </h1>
             <div ref={info1} id="info1" className="">
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Necessitatibus repellat nobis laboriosam itaque, sequi facilis.
+              <p className="text-muted-foreground cursor-default">
+                Software engineer with 2+ years of experience, crafting fast
+                products, intuitive UIs, and scalable AI solutions.
               </p>
             </div>
           </div>
         </div>
         <div className="w-full flex justify-end items-center">
           <div ref={info2} id="info2">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-              consectetur maxime distinctio quod facere amet blanditiis labore.
+            <p className="text-muted-foreground cursor-default">
+              From freelance work to personal projects, I’m always learning and
+              refining my craft — exploring new ideas across web and AI —
+              growing one project, one challenge at a time.
             </p>
           </div>
           <h1
             ref={scrollRef2}
-            className="text-[150px] tracking-tighter font-extrabold leading-none"
+            className="text-[150px] tracking-tighter font-extrabold leading-none cursor-default"
           >
             Sagor
           </h1>

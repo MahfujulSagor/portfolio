@@ -61,7 +61,7 @@ const SelectedWork = () => {
       <div>
         <h2
           ref={selectedwork}
-          className="md:text-5xl text-4xl font-bold text-center flex gap-2 items-center"
+          className="md:text-5xl text-4xl font-bold text-center flex gap-2 items-center cursor-default"
         >
           Selected Work ↓
         </h2>

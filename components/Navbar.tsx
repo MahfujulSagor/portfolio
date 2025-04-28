@@ -93,7 +93,7 @@ const Navbar = () => {
 
         {/* Time */}
         <div className="">
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-muted-foreground cursor-default">
             {new Date().toLocaleTimeString([], {
               hour: "2-digit",
               minute: "2-digit",
