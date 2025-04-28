@@ -2,7 +2,7 @@ import About from "@/components/About";
 import Footer from "@/components/Footer";
 import Introduction from "@/components/Introduction";
 import Navbar from "@/components/Navbar";
-import Projects from "@/components/Projects";
+import SelectedWork from "@/components/SelectedWork";
 import React from "react";
 
 const Home: React.FC = () => {
@@ -15,7 +15,7 @@ const Home: React.FC = () => {
       <Introduction />
 
       {/* Projects section */}
-      <Projects />
+      <SelectedWork />
       {/* End of scroll animation */}
       <div className="min-h-screen animation-end"></div>
 

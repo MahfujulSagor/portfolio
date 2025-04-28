@@ -7,7 +7,8 @@ import React, { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Projects = () => {
+const SelectedWork = () => {
+  const selectedwork = React.useRef<HTMLHeadingElement | null>(null);
   useEffect(() => {
     const section = document.querySelector(".scroll-section");
     const wrapper = section?.querySelector(".wrapper");
@@ -37,6 +38,20 @@ const Projects = () => {
         timeline.to(items[index + 1], { yPercent: 0 }, "<");
       });
     }
+
+    if (!selectedwork.current) return;
+
+    gsap.from(selectedwork.current, {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: selectedwork.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
   }, []);
   return (
     <div
@@ -44,7 +59,10 @@ const Projects = () => {
       className={`flex flex-col gap-26 items-center w-full min-h-screen`}
     >
       <div>
-        <h2 className="md:text-5xl text-4xl font-bold text-center flex gap-2 items-center">
+        <h2
+          ref={selectedwork}
+          className="md:text-5xl text-4xl font-bold text-center flex gap-2 items-center"
+        >
           Selected Work ↓
         </h2>
       </div>
@@ -81,4 +99,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default SelectedWork;
