@@ -9,27 +9,37 @@ const Navbar = () => {
   useEffect(() => {
     const navigation: HTMLElement | null =
       document.getElementById("navigation");
-    const links: HTMLElement | null = document.getElementById("links");
 
-    if (!navigation || !links) return;
+    if (!navigation) return;
 
     const showLinks = () => {
-      gsap.set(links, { display: "flex" });
+      gsap.to(navigation, {
+        width: "100%",
+        height: "100%",
+        duration: 0.8,
+        ease: "power2.inOut",
+      });
     };
 
     const hideLinks = () => {
-      gsap.set(links, { display: "none" });
+      gsap.to(navigation, {
+        width: "100%",
+        height: "100%",
+        duration: 0.8,
+        ease: "power2.inOut",
+      });
     };
 
     navigation.addEventListener("mouseenter", showLinks);
     navigation.addEventListener("mouseleave", hideLinks);
 
-    // Clean up
+    //? Clean up
     return () => {
       navigation.removeEventListener("mouseenter", showLinks);
       navigation.removeEventListener("mouseleave", hideLinks);
     };
   }, []);
+
   return (
     <nav className="fixed top-0 left-0 right-0 flex items-center justify-center rounded-b-4xl w-full max-w-[1200px] h-[80px] mx-auto z-10 bg-background/80 backdrop-blur-xl">
       <div className="flex justify-between items-center w-full">
@@ -38,19 +48,19 @@ const Navbar = () => {
         <div className="h-full flex justify-center items-center">
           <ul
             id="navigation"
-            className="flex space-x-12 transition-all items-center text-muted-foreground border border-dashed rounded-full py-2 px-6"
+            className="group flex space-x-12 items-center text-muted-foreground border rounded-full py-2 px-6 transition-transform"
           >
             <li>
               <Navigation color="oklch(0.708 0 0)" />
             </li>
             <div
               id="links"
-              className="hidden space-x-4 text-muted-foreground transition-all"
+              className="hidden space-x-4 text-muted-foreground transition-transform duration-200 ease-in-out group-hover:flex"
             >
               <li>
                 <Link
                   href="#home"
-                  className="text-lg capitalize"
+                  className="text-lg capitalize hover:text-foreground"
                   onClick={(e) => handleLinkClick(e, "#home")}
                 >
                   Home
@@ -59,7 +69,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="#work"
-                  className="text-lg capitalize"
+                  className="text-lg capitalize hover:text-foreground"
                   onClick={(e) => handleLinkClick(e, "#work")}
                 >
                   Work
@@ -68,7 +78,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="#about"
-                  className="text-lg capitalize"
+                  className="text-lg capitalize hover:text-foreground"
                   onClick={(e) => handleLinkClick(e, "#about")}
                 >
                   About Me
