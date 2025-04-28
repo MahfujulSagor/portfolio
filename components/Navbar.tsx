@@ -9,24 +9,25 @@ const Navbar = () => {
   useEffect(() => {
     const navigation: HTMLElement | null =
       document.getElementById("navigation");
+    const links: HTMLElement | null = document.getElementById("links");
 
-    if (!navigation) return;
+    if (!navigation || !links) return;
 
     const showLinks = () => {
       gsap.to(navigation, {
-        width: "100%",
-        height: "100%",
+        scaleX: 1,
+        width: "414px",
         duration: 0.8,
-        ease: "power2.inOut",
+        ease: "elastic.out(1, 0.8)",
       });
     };
 
     const hideLinks = () => {
       gsap.to(navigation, {
-        width: "100%",
-        height: "100%",
+        scaleX: 1,
+        width: "146px",
         duration: 0.8,
-        ease: "power2.inOut",
+        ease: "elastic.out(1, 0.8)",
       });
     };
 
@@ -45,22 +46,22 @@ const Navbar = () => {
       <div className="flex justify-between items-center w-full">
         <div className="text-2xl font-bold">Portfolio</div>
         {/* Navigation */}
-        <div className="h-full flex justify-center items-center">
+        <div className="h-[50px] flex justify-center items-center">
           <ul
             id="navigation"
-            className="group flex space-x-12 items-center text-muted-foreground border rounded-full py-2 px-6 transition-transform"
+            className="group flex space-x-12 items-center justify-center text-muted-foreground border rounded-full py-2 px-6 transition-transform"
           >
             <li>
               <Navigation color="oklch(0.708 0 0)" />
             </li>
             <div
               id="links"
-              className="hidden space-x-4 text-muted-foreground transition-transform duration-200 ease-in-out group-hover:flex"
+              className="hidden group-hover:flex overflow-hidden space-x-4 text-muted-foreground"
             >
               <li>
                 <Link
                   href="#home"
-                  className="text-lg capitalize hover:text-foreground"
+                  className="sm:text-lg capitalize hover:text-foreground"
                   onClick={(e) => handleLinkClick(e, "#home")}
                 >
                   Home
@@ -69,7 +70,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="#work"
-                  className="text-lg capitalize hover:text-foreground"
+                  className="sm:text-lg capitalize hover:text-foreground"
                   onClick={(e) => handleLinkClick(e, "#work")}
                 >
                   Work
@@ -78,10 +79,10 @@ const Navbar = () => {
               <li>
                 <Link
                   href="#about"
-                  className="text-lg capitalize hover:text-foreground"
+                  className="sm:text-lg capitalize hover:text-foreground"
                   onClick={(e) => handleLinkClick(e, "#about")}
                 >
-                  About Me
+                  About
                 </Link>
               </li>
             </div>
@@ -93,7 +94,7 @@ const Navbar = () => {
 
         {/* Time */}
         <div className="">
-          <p className="text-lg text-muted-foreground cursor-default">
+          <p className="sm:text-lg text-muted-foreground cursor-default">
             {new Date().toLocaleTimeString([], {
               hour: "2-digit",
               minute: "2-digit",

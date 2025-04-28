@@ -43,57 +43,61 @@ const Hero = () => {
     )
       return;
 
-    gsap.fromTo(
-      scrollRef1.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 0.5,
-        ease: "power1.inOut",
-      }
-    );
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        scrollRef1.current,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power1.inOut",
+        }
+      );
 
-    gsap.fromTo(
-      scrollRef2.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 0.5,
-        ease: "power1.inOut",
-      }
-    );
+      gsap.fromTo(
+        scrollRef2.current,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 0.5,
+          ease: "power1.inOut",
+        }
+      );
 
-    gsap.fromTo(
-      info1.current,
-      {
-        opacity: 0,
-        x: 100,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.5,
-        ease: "power1.inOut",
-      }
-    );
+      gsap.fromTo(
+        info1.current,
+        {
+          opacity: 0,
+          x: 100,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.5,
+          ease: "power1.inOut",
+        }
+      );
 
-    gsap.fromTo(
-      info2.current,
-      {
-        opacity: 0,
-        x: -100,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 0.5,
-        ease: "power1.inOut",
-      }
-    );
+      gsap.fromTo(
+        info2.current,
+        {
+          opacity: 0,
+          x: -100,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.5,
+          ease: "power1.inOut",
+        }
+      );
+    });
+
+    return () => ctx.revert();
   }, []);
   return (
     <section className="max-w-[1200px] overflow-hidden w-full min-h-screen flex justify-center items-center">
