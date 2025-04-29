@@ -61,7 +61,7 @@ const SelectedWork = () => {
       <div>
         <h2
           ref={selectedwork}
-          className="md:text-5xl text-4xl font-bold text-center flex gap-2 items-center cursor-default"
+          className="md:text-5xl sm:text-4xl text-3xl font-bold text-center flex gap-2 items-center cursor-default"
         >
           Selected Work ↓
         </h2>
@@ -73,7 +73,7 @@ const SelectedWork = () => {
               return (
                 <div
                   key={index}
-                  className="item absolute inset-0 bg-secondary w-full max-w-[1200px] mx-auto flex gap-4 p-8 md:p-16 border rounded-4xl min-h-[65vh]"
+                  className="item absolute inset-0 bg-secondary w-full max-w-[1200px] mx-auto flex gap-4 p-4 sm:p-8 md:p-12 border rounded-4xl min-h-[65vh]"
                 >
                   <div className="flex flex-col gap-4 justify-center">
                     <p className="text-2xl">{project.name}</p>
@@ -86,7 +86,7 @@ const SelectedWork = () => {
                       width={800}
                       alt={`project preview ${index}`}
                       loading="lazy"
-                      className="object-cover"
+                      className="object-cover rounded-2xl"
                     />
                   </div>
                 </div>

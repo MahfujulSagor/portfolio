@@ -6,8 +6,8 @@ import React from "react";
 
 const FooterContents = () => {
   return (
-    <div className="content p-10 flex flex-col items-center justify-around min-h-full">
-      <p className="text-2xl font-semibold text-center cursor-default">
+    <div className="content md:p-10 sm:p-6 p-4 flex flex-col items-center justify-around min-h-full">
+      <p className="md:text-4xl sm:text-3xl text-2xl font-semibold text-center cursor-default">
         👋 Thanks for stopping by :)
       </p>
       <div className="grid grid-cols-2 place-items-center w-full">

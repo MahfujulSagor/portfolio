@@ -7,7 +7,7 @@ import React from "react";
 
 const Home: React.FC = () => {
   return (
-    <div className="w-full max-w-[1200px] mx-auto min-h-screen justify-center items-center">
+    <div className="w-full max-w-[1200px] mx-auto min-h-screen">
       {/* Navbar */}
       <Navbar />
 

@@ -100,27 +100,30 @@ const Hero = () => {
     return () => ctx.revert();
   }, []);
   return (
-    <section className="max-w-[1200px] overflow-hidden w-full min-h-screen flex justify-center items-center">
+    <section
+      id="home"
+      className="max-w-[1200px] overflow-hidden w-full min-h-screen flex justify-center items-center"
+    >
       <div className="w-full">
         <div className="flex justify-start gap-28 items-center w-full">
-          <div className="w-full flex gap-6 justify-start items-center">
+          <div className="w-full flex md:gap-6 sm:gap-4 gap-2 justify-start items-center">
             <h1
               ref={scrollRef1}
-              className="text-[150px] tracking-tighter font-extrabold leading-none cursor-default"
+              className="lg:text-[150px] md:text-[120px] sm:text-8xl text-6xl tracking-tighter font-extrabold leading-none cursor-default"
             >
               Mahfujul
             </h1>
             <div ref={info1} id="info1" className="">
-              <p className="text-muted-foreground cursor-default">
+              <p className="text-muted-foreground cursor-default md:text-base sm:text-sm text-xs">
                 Software engineer with 2+ years of experience, crafting fast
                 products, intuitive UIs, and scalable AI solutions.
               </p>
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-end items-center">
+        <div className="w-full flex justify-end items-center md:gap-6 sm:gap-4 gap-2">
           <div ref={info2} id="info2">
-            <p className="text-muted-foreground cursor-default">
+            <p className="text-muted-foreground cursor-default md:text-base sm:text-sm text-xs">
               From freelance work to personal projects, I’m always learning and
               refining my craft — exploring new ideas across web and AI —
               growing one project, one challenge at a time.
@@ -128,7 +131,7 @@ const Hero = () => {
           </div>
           <h1
             ref={scrollRef2}
-            className="text-[150px] tracking-tighter font-extrabold leading-none cursor-default"
+            className="lg:text-[150px] md:text-[120px] sm:text-8xl text-6xl tracking-tighter font-extrabold leading-none cursor-default"
           >
             Sagor
           </h1>
