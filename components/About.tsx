@@ -35,7 +35,7 @@ const About = () => {
         About Me
       </h3>
       <div className="w-full space-y-8">
-        <div className="border bg-muted rounded-4xl md:px-8 sm:px-6 px-4 sm:py-8 py-4 md:text-xl sm:text-base text-sm text-muted-foreground flex flex-col gap-8 items-center">
+        <div className="border bg-muted rounded-4xl md:px-8 sm:px-6 px-4 sm:py-10 py-6 md:text-xl sm:text-base text-sm text-muted-foreground flex flex-col gap-8 items-center">
           <div>
             <h4 className="uppercase text-ring sm:text-sm text-xs">TODAY</h4>
             <p>{AboutMe?.today?.text}</p>

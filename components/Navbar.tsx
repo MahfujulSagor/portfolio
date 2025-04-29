@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { Circle, Navigation } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const [currentTime, setCurrentTime] = useState(
@@ -64,7 +65,9 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 flex items-center justify-center rounded-b-4xl w-full max-w-[1200px] h-[80px] mx-auto z-10 bg-background/80 backdrop-blur-xl">
       <div className="flex justify-between items-center w-full">
-        <div className="text-2xl font-bold">Portfolio</div>
+        <div className="">
+          <Logo />
+        </div>
         {/* Navigation */}
         <div className="h-[50px] flex justify-center items-center">
           <ul
