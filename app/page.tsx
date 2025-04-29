@@ -7,23 +7,21 @@ import React from "react";
 
 const Home: React.FC = () => {
   return (
-    <div className="w-full max-w-[1200px] mx-auto min-h-screen">
-      {/* Navbar */}
-      <Navbar />
-
-      {/* Introduction section */}
-      <Introduction />
-
-      {/* Projects section */}
-      <SelectedWork />
-      {/* End of scroll animation */}
-      <div className="min-h-screen animation-end"></div>
-
-      {/* About section */}
-      <About />
-
-      {/* Footer section */}
-      <Footer />
+    <div className="w-full min-h-screen bg-background px-2">
+      <div className="w-full max-w-[1200px] mx-auto min-h-screen">
+        {/* Navbar */}
+        <Navbar />
+        {/* Introduction section */}
+        <Introduction />
+        {/* Projects section */}
+        <SelectedWork />
+        {/* End of scroll animation */}
+        <div className="min-h-screen animation-end"></div>
+        {/* About section */}
+        <About />
+        {/* Footer section */}
+        <Footer />
+      </div>
     </div>
   );
 };

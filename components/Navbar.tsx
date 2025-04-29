@@ -3,9 +3,16 @@ import { handleLinkClick } from "@/utils/smoothScroll";
 import gsap from "gsap";
 import { Circle, Navigation } from "lucide-react";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [currentTime, setCurrentTime] = useState(
+    new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    })
+  );
+
   useEffect(() => {
     const navigation: HTMLElement | null =
       document.getElementById("navigation");
@@ -39,6 +46,19 @@ const Navbar = () => {
       navigation.removeEventListener("mouseenter", showLinks);
       navigation.removeEventListener("mouseleave", hideLinks);
     };
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(
+        new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        })
+      );
+    }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -95,10 +115,7 @@ const Navbar = () => {
         {/* Time */}
         <div className="">
           <p className="sm:text-lg text-muted-foreground cursor-default">
-            {new Date().toLocaleTimeString([], {
-              hour: "2-digit",
-              minute: "2-digit",
-            })}
+            {currentTime}
           </p>
         </div>
       </div>
