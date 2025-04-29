@@ -76,7 +76,10 @@ const SelectedWork = () => {
                   className="item absolute inset-0 bg-secondary w-full max-w-[1200px] mx-auto flex gap-4 p-4 sm:p-8 md:p-12 border rounded-4xl min-h-[65vh]"
                 >
                   <div className="flex flex-col gap-4 justify-center">
-                    <p className="text-2xl">{project.name}</p>
+                    <p className="md:text-4xl text-2xl font-bold">
+                      {project.name}
+                    </p>
+                    <hr />
                     <p>{project.description}</p>
                   </div>
                   <div className="w-full flex justify-center items-center">
