@@ -106,24 +106,24 @@ const Hero = () => {
     >
       <div className="w-full">
         <div className="flex justify-start gap-28 items-center w-full">
-          <div className="w-full flex md:gap-6 sm:gap-4 gap-2 justify-start items-center">
+          <div className="w-full flex sm:gap-4 gap-2 justify-start items-center">
             <h1
               ref={scrollRef1}
-              className="lg:text-[150px] md:text-[120px] sm:text-8xl text-6xl tracking-tighter font-extrabold leading-none cursor-default"
+              className="lg:text-[150px] md:text-[120px] max-[425px]:text-6xl sm:text-8xl text-[80px] tracking-tighter font-extrabold leading-none cursor-default"
             >
               Mahfujul
             </h1>
             <div ref={info1} id="info1" className="">
-              <p className="text-muted-foreground cursor-default md:text-base sm:text-sm text-xs">
+              <p className="text-muted-foreground cursor-default lg:text-base sm:text-sm text-xs hidden sm:flex">
                 Software engineer with 2+ years of experience, crafting fast
                 products, intuitive UIs, and scalable AI solutions.
               </p>
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-end items-center md:gap-6 sm:gap-4 gap-2">
+        <div className="w-full flex justify-end items-center sm:gap-4 gap-2">
           <div ref={info2} id="info2">
-            <p className="text-muted-foreground cursor-default md:text-base sm:text-sm text-xs">
+            <p className="text-muted-foreground cursor-default md:text-base sm:text-sm text-xs hidden sm:flex">
               From freelance work to personal projects, I’m always learning and
               refining my craft — exploring new ideas across web and AI —
               growing one project, one challenge at a time.
@@ -131,7 +131,7 @@ const Hero = () => {
           </div>
           <h1
             ref={scrollRef2}
-            className="lg:text-[150px] md:text-[120px] sm:text-8xl text-6xl tracking-tighter font-extrabold leading-none cursor-default"
+            className="lg:text-[150px] md:text-[120px] sm:text-8xl max-[425px]:text-6xl text-[80px] tracking-tighter font-extrabold leading-none cursor-default"
           >
             Sagor
           </h1>

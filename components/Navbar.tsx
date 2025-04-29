@@ -21,7 +21,11 @@ const Navbar = () => {
 
     if (!navigation || !links) return;
 
-    const showLinks = () => {
+    const isSmallScreen: boolean = window.innerWidth < 640;
+
+    if (isSmallScreen) return;
+
+    const showLinks = (): void => {
       gsap.to(navigation, {
         scaleX: 1,
         width: "414px",
@@ -30,7 +34,7 @@ const Navbar = () => {
       });
     };
 
-    const hideLinks = () => {
+    const hideLinks = (): void => {
       gsap.to(navigation, {
         scaleX: 1,
         width: "146px",
@@ -63,28 +67,30 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 flex items-center justify-center rounded-b-4xl w-full max-w-[1200px] h-[80px] mx-auto z-10 bg-background/80 backdrop-blur-xl">
-      <div className="flex justify-between items-center w-full">
-        <div className="">
+    <nav className="fixed top-0 left-0 right-0 flex items-center justify-center rounded-b-4xl w-full max-w-[1200px] max-[1199px]:px-2 h-[80px] mx-auto z-10 bg-background/80 backdrop-blur-xl">
+      <div className="flex sm:justify-between justify-center items-center w-full">
+        {/* Logo */}
+        <div className="hidden sm:flex">
           <Logo />
         </div>
+
         {/* Navigation */}
         <div className="h-[50px] flex justify-center items-center">
           <ul
             id="navigation"
-            className="group flex space-x-12 items-center justify-center text-muted-foreground border rounded-full py-2 px-6 transition-transform"
+            className="group sm:w-full flex sm:space-x-12 space-x-6 items-center justify-center text-muted-foreground border rounded-full py-2 sm:px-6 px-4"
           >
             <li>
               <Navigation color="oklch(0.708 0 0)" />
             </li>
             <div
               id="links"
-              className="hidden group-hover:flex overflow-hidden space-x-4 text-muted-foreground"
+              className="md:hidden md:group-hover:flex flex md:overflow-hidden space-x-4 text-muted-foreground"
             >
               <li>
                 <Link
                   href="#home"
-                  className="sm:text-lg capitalize hover:text-foreground"
+                  className="text-lg capitalize hover:text-foreground"
                   onClick={(e) => handleLinkClick(e, "#home")}
                 >
                   Home
@@ -93,7 +99,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="#work"
-                  className="sm:text-lg capitalize hover:text-foreground"
+                  className="text-lg capitalize hover:text-foreground"
                   onClick={(e) => handleLinkClick(e, "#work")}
                 >
                   Work
@@ -102,7 +108,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="#about"
-                  className="sm:text-lg capitalize hover:text-foreground"
+                  className="text-lg capitalize hover:text-foreground"
                   onClick={(e) => handleLinkClick(e, "#about")}
                 >
                   About
@@ -116,7 +122,7 @@ const Navbar = () => {
         </div>
 
         {/* Time */}
-        <div className="">
+        <div className="hidden sm:flex">
           <p className="sm:text-lg text-muted-foreground cursor-default">
             {currentTime}
           </p>

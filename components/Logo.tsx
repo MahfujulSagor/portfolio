@@ -10,7 +10,7 @@ const Logo = () => {
       height={100}
       loading="lazy"
       alt="Mahfujul_Sagor"
-      className="object-cover"
+      className="object-cover hidden sm:flex"
     />
   );
 };
