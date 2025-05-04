@@ -1,12 +1,18 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 
-const SkillsIcon = ({ icon }: { icon: StaticImageData }) => {
+const SkillsIcon = ({
+  icon,
+  height,
+}: {
+  icon: StaticImageData;
+  height: number;
+}) => {
   return (
     <Image
       src={icon}
       alt="skills"
-      height={60}
+      height={height || 60}
       loading="lazy"
       className="object-cover"
     />

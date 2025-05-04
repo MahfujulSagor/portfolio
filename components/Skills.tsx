@@ -1,35 +1,24 @@
 import React from "react";
-import react from "@/public/react-js-icon.svg";
-import nextjs from "@/public/nextjs-icon.svg";
-import mongodb from "@/public/mongodb-icon.svg";
-import expressjs from "@/public/express-js-icon.svg";
-import nodejs from "@/public/node-js-icon.svg";
-import javascript from "@/public/javascript-programming-language-icon.svg";
-import typescript from "@/public/typescript-programming-language-icon.svg";
-import tailwindcss from "@/public/tailwind-css-icon.svg";
-import git from "@/public/git-icon.svg";
-import github from "@/public/github-icon.svg";
-import html from "@/public/html-icon.svg";
-import css from "@/public/css-icon.svg";
 import SkillsIcon from "./SkillsIcon";
 import { InfiniteSlider } from "./motion-primitives/infinite-slider";
+import { icons } from "@/lib/icons/icons";
 
 const Skills = () => {
   return (
     <div className="w-full">
       <InfiniteSlider gap={40} speedOnHover={40} reverse>
-        <SkillsIcon icon={react} />
-        <SkillsIcon icon={nextjs} />
-        <SkillsIcon icon={mongodb} />
-        <SkillsIcon icon={expressjs} />
-        <SkillsIcon icon={nodejs} />
-        <SkillsIcon icon={javascript} />
-        <SkillsIcon icon={typescript} />
-        <SkillsIcon icon={tailwindcss} />
-        <SkillsIcon icon={git} />
-        <SkillsIcon icon={github} />
-        <SkillsIcon icon={html} />
-        <SkillsIcon icon={css} />
+        <SkillsIcon icon={icons.react} height={60} />
+        <SkillsIcon icon={icons.nextjs} height={60} />
+        <SkillsIcon icon={icons.mongodb} height={60} />
+        <SkillsIcon icon={icons.expressjs} height={60} />
+        <SkillsIcon icon={icons.nodejs} height={60} />
+        <SkillsIcon icon={icons.javascript} height={60} />
+        <SkillsIcon icon={icons.typescript} height={60} />
+        <SkillsIcon icon={icons.tailwindcss} height={60} />
+        <SkillsIcon icon={icons.git} height={60} />
+        <SkillsIcon icon={icons.github} height={60} />
+        <SkillsIcon icon={icons.html} height={60} />
+        <SkillsIcon icon={icons.css} height={60} />
       </InfiniteSlider>
     </div>
   );

@@ -6,9 +6,10 @@ import Skills from "./Skills";
 
 const About = () => {
   const heading = React.useRef<HTMLHeadingElement | null>(null);
+  const skills = React.useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!heading) return;
+    if (!heading || !skills) return;
 
     gsap.from(heading.current, {
       opacity: 0,
@@ -17,6 +18,18 @@ const About = () => {
       ease: "power2.out",
       scrollTrigger: {
         trigger: heading.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    gsap.from(skills.current, {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: skills.current,
         start: "top 80%",
         toggleActions: "play none none none",
       },
@@ -35,7 +48,7 @@ const About = () => {
         About Me
       </h3>
       <div className="w-full space-y-8">
-        <div className="border bg-muted rounded-4xl md:px-8 sm:px-6 px-4 sm:py-10 py-6 md:text-xl sm:text-base text-sm text-muted-foreground flex flex-col gap-8 items-center">
+        <div className="border rounded-4xl md:px-8 sm:px-6 px-4 sm:py-10 py-6 md:text-xl sm:text-base text-sm text-muted-foreground flex flex-col gap-8 items-center">
           <div>
             <h4 className="uppercase text-ring sm:text-sm text-xs">TODAY</h4>
             <p>{AboutMe?.today?.text}</p>
@@ -54,7 +67,7 @@ const About = () => {
           </div>
         </div>
         {/* skills */}
-        <div className="w-full bg-muted py-10 rounded-4xl border">
+        <div className="w-full py-10 rounded-4xl border">
           <Skills />
         </div>
       </div>
