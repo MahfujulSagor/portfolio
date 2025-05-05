@@ -7,18 +7,9 @@ const Skills = () => {
   return (
     <div className="w-full">
       <InfiniteSlider gap={40} speedOnHover={40} reverse>
-        <SkillsIcon icon={icons.react} height={60} />
-        <SkillsIcon icon={icons.nextjs} height={60} />
-        <SkillsIcon icon={icons.mongodb} height={60} />
-        <SkillsIcon icon={icons.expressjs} height={60} />
-        <SkillsIcon icon={icons.nodejs} height={60} />
-        <SkillsIcon icon={icons.javascript} height={60} />
-        <SkillsIcon icon={icons.typescript} height={60} />
-        <SkillsIcon icon={icons.tailwindcss} height={60} />
-        <SkillsIcon icon={icons.git} height={60} />
-        <SkillsIcon icon={icons.github} height={60} />
-        <SkillsIcon icon={icons.html} height={60} />
-        <SkillsIcon icon={icons.css} height={60} />
+        {Object.values(icons).map((icon, index) => {
+          return <SkillsIcon key={index} icon={icon} height={60} />;
+        })}
       </InfiniteSlider>
     </div>
   );

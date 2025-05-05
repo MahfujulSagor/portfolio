@@ -9,11 +9,7 @@ const WorkStack = ({
   icon: StaticImageData;
   height: number;
 }) => {
-  return (
-    <div>
-      <SkillsIcon icon={icon} height={height || 30} />
-    </div>
-  );
+  return <SkillsIcon icon={icon} height={height || 30} />;
 };
 
 export default WorkStack;

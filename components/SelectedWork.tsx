@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import React, { useEffect } from "react";
 import WorkStack from "./WorkStack";
-import { icons } from "@/lib/icons/icons";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -83,7 +82,17 @@ const SelectedWork = () => {
                     </p>
                     <hr />
                     <p>{project.description}</p>
-                    <WorkStack icon={icons.react} height={30} />
+                    <div className="flex flex-wrap items-center gap-4">
+                      {project.icons.map((icon, index) => {
+                        return (
+                          <WorkStack
+                            key={index}
+                            icon={icon.icon}
+                            height={icon.height}
+                          />
+                        );
+                      })}
+                    </div>
                   </div>
                   <div className="w-full flex justify-center items-center">
                     <Image

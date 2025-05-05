@@ -10,6 +10,8 @@ import git from "@/public/git-icon.svg";
 import github from "@/public/github-icon.svg";
 import html from "@/public/html-icon.svg";
 import css from "@/public/css-icon.svg";
+import appwrite from "@/public/appwrite.png";
+import expo from "@/public/expo.png";
 import { Icons } from "@/types/icons";
 
 export const icons: Icons = {
@@ -25,4 +27,6 @@ export const icons: Icons = {
   github,
   html,
   css,
+  appwrite,
+  expo,
 };
