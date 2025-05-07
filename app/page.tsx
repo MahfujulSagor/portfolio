@@ -16,7 +16,7 @@ const Home: React.FC = () => {
         {/* Projects section */}
         <SelectedWork />
         {/* End of scroll animation */}
-        <div className="min-h-screen animation-end"></div>
+        <div className="md:min-h-screen min-h-26 animation-end"></div>
         {/* About section */}
         <About />
         {/* Footer section */}

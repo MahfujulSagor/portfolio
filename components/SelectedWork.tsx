@@ -68,20 +68,22 @@ const SelectedWork = () => {
         </h2>
       </div>
       <div className="scroll-section w-full min-h-screen">
-        <div className={`wrapper min-h-[200vh]`}>
-          <div className="list relative flex flex-col min-h-[65vh]">
+        <div className={`md:wrapper md:min-h-[200vh]`}>
+          <div className="list relative flex flex-col md:gap-0 gap-26 min-h-[65vh]">
             {projects.map((project, index) => {
               return (
                 <div
                   key={index}
-                  className="item absolute inset-0 bg-secondary w-full max-w-[1200px] mx-auto flex gap-4 p-4 sm:p-8 md:p-12 border rounded-4xl min-h-[65vh]"
+                  className="md:item max-md:static absolute inset-0 bg-secondary w-full max-w-[1200px] mx-auto flex gap-4 max-md:flex-col-reverse p-4 sm:p-8 md:p-12 border rounded-4xl min-h-[65vh]"
                 >
-                  <div className="flex flex-col gap-4 justify-center">
+                  <div className="flex md:flex-1 flex-col gap-4 justify-center">
                     <p className="md:text-4xl text-2xl font-bold">
                       {project.name}
                     </p>
                     <hr />
-                    <p>{project.description}</p>
+                    <p className="text-sm lg:text-base">
+                      {project.description}
+                    </p>
                     <div className="flex flex-wrap items-center gap-4">
                       {project.icons.map((icon, index) => {
                         return (
@@ -94,14 +96,14 @@ const SelectedWork = () => {
                       })}
                     </div>
                   </div>
-                  <div className="w-full flex justify-center items-center">
+                  <div className="w-full md:flex-1 flex justify-center items-center">
                     <Image
                       src={project.image}
-                      height={800}
-                      width={800}
+                      width={600}
                       alt={`project preview ${index}`}
                       loading="lazy"
-                      className="object-cover rounded-2xl"
+                      objectFit="cover"
+                      className="object-cover rounded-2xl w-full"
                     />
                   </div>
                 </div>
