@@ -3,21 +3,36 @@ import { projects } from "@/lib/projects/projects";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import WorkStack from "./WorkStack";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const SelectedWork = () => {
-  const selectedwork = React.useRef<HTMLHeadingElement | null>(null);
+  const selectedwork = useRef<HTMLHeadingElement | null>(null);
+  const scrollSectionRef = useRef<HTMLDivElement | null>(null);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const itemsRef = useRef<HTMLDivElement[]>([]);
+
+  //? Clear refs on re-render to avoid stale elements
+  itemsRef.current = [];
+
+  const addToItemsRef = (el: HTMLDivElement | null) => {
+    if (el && !itemsRef.current.includes(el)) {
+      itemsRef.current.push(el);
+    }
+  };
+
   useEffect(() => {
-    const section = document.querySelector(".scroll-section");
-    const wrapper = section?.querySelector(".wrapper");
-    const items = wrapper?.querySelectorAll(".item");
+    const width = window.innerWidth;
+    const section = scrollSectionRef.current;
+    const items = itemsRef.current;
+
+    if (width < 768) return;
 
     if (items) {
-      items.forEach((item, index) => {
-        if (index !== 0) {
+      items.forEach((item: HTMLDivElement, index) => {
+        if (index != 0) {
           gsap.set(item, { yPercent: 150 });
         }
       });
@@ -67,14 +82,18 @@ const SelectedWork = () => {
           Selected Work ↓
         </h2>
       </div>
-      <div className="scroll-section w-full min-h-screen">
-        <div className={`md:wrapper md:min-h-[200vh]`}>
+      <div
+        ref={scrollSectionRef}
+        className="scroll-section w-full min-h-screen"
+      >
+        <div ref={wrapperRef} className={`wrapper md:min-h-[200vh]`}>
           <div className="list relative flex flex-col md:gap-0 gap-26 min-h-[65vh]">
             {projects.map((project, index) => {
               return (
                 <div
                   key={index}
-                  className="md:item max-md:static absolute inset-0 bg-secondary w-full max-w-[1200px] mx-auto flex gap-4 max-md:flex-col-reverse p-4 sm:p-8 md:p-12 border rounded-4xl min-h-[65vh]"
+                  ref={addToItemsRef}
+                  className="item max-md:static md:absolute md:inset-0 bg-secondary w-full max-w-[1200px] mx-auto flex gap-4 max-md:flex-col-reverse p-4 sm:p-8 md:p-12 border rounded-4xl min-h-[65vh]"
                 >
                   <div className="flex md:flex-1 flex-col gap-4 justify-center">
                     <p className="md:text-4xl text-2xl font-bold">
