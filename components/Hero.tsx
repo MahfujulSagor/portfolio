@@ -115,7 +115,7 @@ const Hero = () => {
             </h1>
             <div ref={info1} id="info1" className="">
               <p className="text-muted-foreground cursor-default lg:text-base sm:text-sm text-xs hidden sm:flex">
-                Software engineer with 2+ years of experience, crafting fast
+                Software engineer with 3+ years of experience, crafting fast
                 products, intuitive UIs, and scalable AI solutions.
               </p>
             </div>
