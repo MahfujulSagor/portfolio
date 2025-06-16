@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import WorkStack from "./WorkStack";
+import MobileWork from "./MobileWork";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -116,14 +117,20 @@ const SelectedWork = () => {
                     </div>
                   </div>
                   <div className="w-full md:flex-1 flex justify-center items-center">
-                    <Image
-                      src={project.image}
-                      width={600}
-                      alt={`project preview ${index}`}
-                      loading="lazy"
-                      objectFit="cover"
-                      className="object-cover rounded-2xl w-full"
-                    />
+                    <div className="relative w-full aspect-[16/9]">
+                      {project.type === "mobile" ? (
+                        <MobileWork />
+                      ) : (
+                        <Image
+                          src={project.image}
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          alt={`project preview ${index}`}
+                          loading="lazy"
+                          fill
+                          className="object-fit rounded-2xl w-full"
+                        />
+                      )}
+                    </div>
                   </div>
                 </div>
               );
