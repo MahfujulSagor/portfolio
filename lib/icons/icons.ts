@@ -12,6 +12,7 @@ import html from "@/public/html-icon.svg";
 import css from "@/public/css-icon.svg";
 import appwrite from "@/public/appwrite.png";
 import expo from "@/public/expo.png";
+import firebase from "@/public/firebase.svg";
 import { Icons } from "@/types/icons";
 
 export const icons: Icons = {
@@ -29,4 +30,5 @@ export const icons: Icons = {
   css,
   appwrite,
   expo,
+  firebase,
 };
