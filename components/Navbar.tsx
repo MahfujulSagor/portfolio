@@ -21,35 +21,44 @@ const Navbar = () => {
 
     if (!navigation || !links) return;
 
-    const isSmallScreen: boolean = window.innerWidth < 640;
+    const mm = gsap.matchMedia();
 
-    if (isSmallScreen) return;
-
-    const showLinks = (): void => {
-      gsap.to(navigation, {
-        scaleX: 1,
-        width: "414px",
-        duration: 0.8,
-        ease: "elastic.out(1, 0.8)",
-      });
-    };
-
-    const hideLinks = (): void => {
-      gsap.to(navigation, {
+    mm.add("(min-width: 768px)", () => {
+      gsap.set(navigation, {
         scaleX: 1,
         width: "146px",
-        duration: 0.8,
-        ease: "elastic.out(1, 0.8)",
       });
-    };
 
-    navigation.addEventListener("mouseenter", showLinks);
-    navigation.addEventListener("mouseleave", hideLinks);
+      const showLinks = (): void => {
+        gsap.to(navigation, {
+          scaleX: 1,
+          width: "414px",
+          duration: 0.8,
+          ease: "elastic.out(1, 0.8)",
+        });
+      };
 
-    //? Clean up
+      const hideLinks = (): void => {
+        gsap.to(navigation, {
+          scaleX: 1,
+          width: "146px",
+          duration: 0.8,
+          ease: "elastic.out(1, 0.8)",
+        });
+      };
+
+      navigation.addEventListener("mouseenter", showLinks);
+      navigation.addEventListener("mouseleave", hideLinks);
+
+      //? Clean up
+      return () => {
+        navigation.removeEventListener("mouseenter", showLinks);
+        navigation.removeEventListener("mouseleave", hideLinks);
+      };
+    });
+
     return () => {
-      navigation.removeEventListener("mouseenter", showLinks);
-      navigation.removeEventListener("mouseleave", hideLinks);
+      mm.revert();
     };
   }, []);
 

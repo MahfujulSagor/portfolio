@@ -6,6 +6,8 @@ import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import WorkStack from "./WorkStack";
 import MobileWork from "./MobileWork";
+import Link from "next/link";
+import ComesInGoesOutUnderline from "@/fancy/components/text/underline-comes-in-goes-out";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,15 +27,16 @@ const SelectedWork = () => {
   };
 
   useEffect(() => {
-    const width = window.innerWidth;
     const section = scrollSectionRef.current;
     const items = itemsRef.current;
 
-    if (width < 768) return;
+    if (!section || items.length === 0) return;
 
-    if (items) {
-      items.forEach((item: HTMLDivElement, index) => {
-        if (index != 0) {
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      items.forEach((item, index) => {
+        if (index !== 0) {
           gsap.set(item, { yPercent: 150 });
         }
       });
@@ -52,23 +55,34 @@ const SelectedWork = () => {
 
       items.forEach((item, index) => {
         timeline.to(item, { scale: 0.9 });
-        timeline.to(items[index + 1], { yPercent: 0 }, "<");
+        if (index + 1 < items.length) {
+          timeline.to(items[index + 1], { yPercent: 0 }, "<");
+        }
+      });
+
+      return () => {
+        timeline.kill();
+      };
+    });
+
+    //? heading animation (always allowed)
+    if (selectedwork.current) {
+      gsap.from(selectedwork.current, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: selectedwork.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
       });
     }
 
-    if (!selectedwork.current) return;
-
-    gsap.from(selectedwork.current, {
-      opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: selectedwork.current,
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-    });
+    return () => {
+      mm.revert(); //? Clean up all matched media animations
+    };
   }, []);
   return (
     <div
@@ -87,7 +101,7 @@ const SelectedWork = () => {
         ref={scrollSectionRef}
         className="scroll-section w-full min-h-screen"
       >
-        <div ref={wrapperRef} className={`wrapper md:min-h-[200vh]`}>
+        <div ref={wrapperRef} className="wrapper min-h-full md:min-h-[200vh]">
           <div className="list relative flex flex-col md:gap-0 gap-26 min-h-[65vh]">
             {projects.map((project, index) => {
               return (
@@ -114,6 +128,14 @@ const SelectedWork = () => {
                           />
                         );
                       })}
+                    </div>
+                    <div className="">
+                      <Link target="_blank" href={project.github} className="text-lg">
+                        <ComesInGoesOutUnderline
+                          label={"View on GitHub"}
+                          direction="right"
+                        />
+                      </Link>
                     </div>
                   </div>
                   <div className="w-full md:flex-1 flex justify-center items-center">

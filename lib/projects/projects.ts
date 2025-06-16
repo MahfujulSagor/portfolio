@@ -11,6 +11,7 @@ export const projects: Projects[] = [
       "ConvoVerse is a sleek, cost-efficient AI chat platform that connects users with today’s most advanced language models through a unified interface. Built for speed, simplicity, and scalability, it offers developers, researchers, and AI enthusiasts a powerful alternative to expensive, one-size-fits-all tools — at a fraction of the cost.",
     image: ConvoVerse,
     type: "web",
+    github: "https://github.com/MahfujulSagor/ConvoVerse",
     icons: [
       {
         icon: icons.react,
@@ -44,6 +45,7 @@ export const projects: Projects[] = [
       "ImageFlux is a lightweight mobile app that uses AI to enhance low-resolution images in real-time. Designed with a minimal UI and powered by Expo, it enables quick photo upscaling with near-instant results — no GPU required.",
     image: ImageFlux,
     type: "mobile",
+    github: "https://github.com/MahfujulSagor/ImageFlux",
     icons: [
       {
         icon: icons.react,
@@ -74,9 +76,10 @@ export const projects: Projects[] = [
   {
     name: "Native Image Comparison Slider",
     description:
-      "A zero-dependency React component that allows users to compare two images interactively using a slider. Published to npm, fully open-source, and ideal for before/after visualizations in portfolios, ecommerce, or AI image tools.",
+      "A React component that allows users to compare two images interactively using a slider. Published to npm, fully open-source, and ideal for before/after visualizations in portfolios, ecommerce, or AI image tools.",
     image: NPM,
     type: "npm",
+    github: "https://github.com/MahfujulSagor/native-image-comparison-slider",
     icons: [
       {
         icon: icons.react,
@@ -105,6 +108,7 @@ export const mobileProjects: Projects[] = [
       "ImageFlux is a lightweight mobile app that uses AI to enhance low-resolution images in real-time. Designed with a minimal UI and powered by Expo, it enables quick photo upscaling with near-instant results — no GPU required.",
     image: ImageFlux,
     type: "mobile",
+    github: "https://github.com/MahfujulSagor/ImageFlux",
     icons: [
       {
         icon: icons.react,
